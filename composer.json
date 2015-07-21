@@ -1,0 +1,12 @@
+{
+    "name": "karthiksekarnz/qr-code-decoder",
+    "description": "PHP QR Code decoder",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karthik Sekar",
+            "email": "kaysekar@gmail.com"
+        }
+    ],
+    "require": {}
+}
