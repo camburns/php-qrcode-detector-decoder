@@ -8,5 +8,12 @@
             "email": "kaysekar@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+      "psr-0": {
+        "Zxing": "lib/"
+      }
+    },
+    "require": {
+      "php": ">=5.3.9"
+    }
 }
