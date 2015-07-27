@@ -2,11 +2,8 @@
 
 include_once('./lib/QrReader.php');
 
-
-
-
-
 $dir = scandir('qrcodes');
+
 foreach($dir as $file) {
     if($file=='.'||$file=='..') continue;
 
@@ -15,6 +12,4 @@ foreach($dir as $file) {
     $qrcode = new QrReader('qrcodes/'.$file);
     print $text = $qrcode->text();
     print "<br/>";
-
-
 }

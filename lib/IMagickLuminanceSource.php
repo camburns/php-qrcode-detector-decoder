@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Zxing;
 
 /**
@@ -29,7 +28,7 @@ final class IMagickLuminanceSource extends LuminanceSource {
                                 $width=null,
                                 $height=null) {
         if(!$left&&!$top&&!$width&&!$height){
-            $this->_IMagickLuminanceSource($image,$dataWidth,$dataHeight);
+                $this->_IMagickLuminanceSource($image,$dataWidth,$dataHeight);
             return;
         }
         parent::__construct($width, $height);
