@@ -1,4 +1,8 @@
-<?
+<?php
+namespace Zxing;
+
+use Zxing\Common\HybridBinarizer;
+use Zxing\Qrcode\QRCodeReader;
 
 include_once ('Reader.php');
 require_once ('BinaryBitmap.php');
@@ -45,53 +49,46 @@ include_once ('Binarizer.php');
 include_once ('common/GlobalHistogramBinarizer.php');
 include_once ('common/HybridBinarizer.php');
 
-
-final class QrReader
+class QrReader
 {
     public $result;
 
-    function __construct($filename)
+    public function decode($filename)
     {
-
         try {
-
             if(extension_loaded('imagick')) {
-                $im = new Imagick();
+                $im = new \Imagick();
                 $im->readImage($filename);
                 $width = $im->getImageWidth();
                 $height = $im->getImageHeight();
-                $source = new \Zxing\IMagickLuminanceSource($im, $width, $height);
-            }else {
+                $source = new IMagickLuminanceSource($im, $width, $height);
+            } else {
                 $image = file_get_contents($filename);
                 $sizes = getimagesize($filename);
                 $width = $sizes[0];
                 $height = $sizes[1];
                 $im = imagecreatefromstring($image);
 
-                $source = new \Zxing\GDLuminanceSource($im, $width, $height);
+                $source = new GDLuminanceSource($im, $width, $height);
             }
-            $histo = new Zxing\Common\HybridBinarizer($source);
-            $bitmap = new Zxing\BinaryBitmap($histo);
-            $reader = new Zxing\Qrcode\QRCodeReader();
+            $histo = new HybridBinarizer($source);
+            $bitmap = new BinaryBitmap($histo);
+            $reader = new QRCodeReader();
 
             $this->result = $reader->decode($bitmap);
-        }catch (\Zxing\NotFoundException $er){
+        } catch (NotFoundException $er) {
             $this->result = false;
-        }catch( \Zxing\FormatException $er){
+        } catch(FormatException $er) {
             $this->result = false;
-        }catch( \Zxing\ChecksumException $er){
+        } catch(ChecksumException $er) {
             $this->result = false;
         }
-    }
 
-    public function text()
-    {
         if(method_exists($this->result,'toString')) {
             return  ($this->result->toString());
-        }else{
+        } else {
             return $this->result;
         }
     }
-
 }
 
