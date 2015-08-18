@@ -1,19 +1,19 @@
 {
-    "name": "karthiksekarnz/qr-code-decoder",
-    "description": "PHP QR Code decoder",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Karthik Sekar",
-            "email": "kaysekar@gmail.com"
-        }
-    ],
-    "autoload": {
-      "psr-0": {
-        "Zxing\\": "lib/"
-      }
-    },
-    "require": {
-      "php": ">=5.3.9"
+  "name": "karthiksekarnz/qr-code-decoder",
+  "description": "PHP QR Code decoder",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Karthik Sekar",
+      "email": "kaysekar@gmail.com"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Zxing\\": "lib/"
+    }
+  },
+  "require": {
+    "php": ">=5.3.9"
+  }
 }
