@@ -1,6 +1,6 @@
 <?
 
-include_once('./lib/QrReader.php');
+include_once('./lib/Zxing/QrReader.php');
 
 $dir = scandir('qrcodes');
 
