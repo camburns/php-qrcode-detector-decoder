@@ -7,7 +7,7 @@ include_once ('common/customFunctions.php');
 use Zxing\Common\HybridBinarizer;
 use Zxing\Qrcode\QRCodeReader;
 
-abstract class QrReader
+class QrReader
 {
     public $result;
 
